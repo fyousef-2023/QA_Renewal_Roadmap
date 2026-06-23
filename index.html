@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QA-Renewal Drive Roadmap</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f8f7fb; direction: rtl; min-height: 100vh; }
+
+  .page-header { background: #653165; color: #fff; text-align: center; padding: 22px 24px 16px; border-bottom: 4px solid #00A4A6; position: sticky; top: 0; z-index: 100; }
+  .page-header h1 { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+  .page-header p  { font-size: 12px; opacity: .75; }
+
+  .map-wrap { width: 100%; max-width: 900px; margin: 32px auto; padding: 0 16px; }
+
+  .hub { background: #653165; color: #fff; border-radius: 16px; padding: 14px 24px; text-align: center; width: 220px; margin: 0 auto; position: relative; z-index: 2; box-shadow: 0 2px 12px rgba(101,49,101,.25); }
+  .hub-title { font-size: 15px; font-weight: 700; }
+
+  .svg-connector { display: block; width: 100%; height: 60px; overflow: visible; }
+
+  .branches { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .branch-zone { background: #fff; border-radius: 14px; border: 0.5px solid #e0dde8; overflow: hidden; }
+  .branch-head { padding: 10px 14px; color: #fff; display: flex; align-items: center; gap: 8px; }
+  .branch-head .icon  { font-size: 15px; }
+  .branch-head .label { font-size: 13px; font-weight: 700; }
+  .branch-head .count { font-size: 10px; opacity: .75; margin-right: auto; background: rgba(255,255,255,.2); padding: 2px 7px; border-radius: 10px; }
+
+  .branch-files { padding: 10px 12px; display: flex; flex-direction: column; gap: 6px; }
+
+  .file-card { border-radius: 8px; padding: 8px 11px; border: 0.5px solid #e0dde8; background: #fafafa; display: flex; align-items: flex-start; gap: 9px; text-decoration: none; transition: background .15s, border-color .15s; }
+  .file-card:hover { background: #f0f0f0; border-color: #bbb; }
+  .file-card.highlight { border-width: 1.5px; background: #fff; }
+
+  .file-icon-box { font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+  .file-info { flex: 1; min-width: 0; }
+  .file-name { font-size: 11px; font-weight: 600; color: #1a1a2e; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; direction: ltr; text-align: right; }
+  .file-desc-ar { font-size: 10px; color: #555; margin-top: 2px; line-height: 1.4; }
+  .file-desc-en { font-size: 9.5px; color: #888; margin-top: 1px; line-height: 1.4; font-style: italic; direction: ltr; text-align: right; }
+  .file-tag  { font-size: 9px; padding: 1px 6px; border-radius: 8px; display: inline-block; margin-top: 3px; }
+
+  /* Branch colours */
+  .b-joda  .branch-head { background: #653165; }
+  .b-joda  .file-card.highlight { border-color: #653165; }
+  .b-joda  .ft { background: #EFE5EF; color: #653165; }
+
+  .b-acad  .branch-head { background: #00838F; }
+  .b-acad  .file-card.highlight { border-color: #00A4A6; }
+  .b-acad  .ft { background: #D9F2F2; color: #005F60; }
+
+  .b-dash  .branch-head { background: #1565C0; }
+  .b-dash  .file-card.highlight { border-color: #1976D2; }
+  .b-dash  .ft { background: #DDEEFF; color: #0D3C7A; }
+
+  .b-form  .branch-head { background: #2E7D32; }
+  .b-form  .file-card.highlight { border-color: #388E3C; }
+  .b-form  .ft { background: #E8F5E9; color: #1B5E20; }
+
+  .page-footer { text-align: center; padding: 20px 16px 32px; font-size: 11px; color: #888; border-top: 0.5px solid #ddd; margin-top: 24px; line-height: 1.8; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>QA-Renewal Drive Roadmap</h1>
+  <p>خارطة ملفات مجلد QA — فريق التجديد</p>
+</div>
+
+<div class="map-wrap">
+
+  <div class="hub">
+    <div class="hub-title">QA — Renewal Drive</div>
+  </div>
+
+  <svg class="svg-connector" viewBox="0 0 800 60" preserveAspectRatio="none">
+    <line x1="400" y1="0"  x2="400" y2="30" stroke="#bbb" stroke-width="1.5"/>
+    <line x1="200" y1="30" x2="600" y2="30" stroke="#bbb" stroke-width="1.5"/>
+    <line x1="200" y1="30" x2="200" y2="60" stroke="#bbb" stroke-width="1.5"/>
+    <line x1="400" y1="30" x2="400" y2="60" stroke="#bbb" stroke-width="1.5"/>
+    <line x1="600" y1="30" x2="600" y2="60" stroke="#bbb" stroke-width="1.5"/>
+  </svg>
+
+  <div class="branches">
+
+    <!-- جودة -->
+    <div class="branch-zone b-joda">
+      <div class="branch-head">
+        <span class="icon">🔍</span>
+        <span class="label">جودة</span>
+        <span class="count">3 ملفات</span>
+      </div>
+      <div class="branch-files">
+
+        <a class="file-card highlight" href="https://docs.google.com/spreadsheets/d/1aWY0yEufz_e2zu0p1r-dmJVuyYyF3lEQ/edit?usp=drive_link&ouid=117371088298638966702&rtpof=true&sd=true" target="_blank">
+          <div class="file-icon-box">📋</div>
+          <div class="file-info">
+            <div class="file-name">IQS_Criteria_Renewal</div>
+            <div class="file-desc-ar">معايير تقييم جودة التفاعل — فريق التجديد</div>
+            <div class="file-desc-en">Renewal team interaction quality evaluation criteria</div>
+            <span class="file-tag ft">xlsx · معيار التقييم</span>
+          </div>
+        </a>
+
+        <a class="file-card" href="https://docs.google.com/document/d/1EshuBXAKboImJl8Jjn1KoFCtJuiA6nTb/edit?usp=drive_link&ouid=117371088298638966702&rtpof=true&sd=true" target="_blank">
+          <div class="file-icon-box">📄</div>
+          <div class="file-info">
+            <div class="file-name">Renewal_Team_Guide</div>
+            <div class="file-desc-ar">دليل فريق التجديد — الموظفون، المراحل، فورم الجودة</div>
+            <div class="file-desc-en">Renewal team guide — agents, stages & QA form</div>
+            <span class="file-tag ft">docx</span>
+          </div>
+        </a>
+
+        <a class="file-card" href="https://crm.zoho.com/crm/org709483323/tab/Dashboards/4412475001391775290" target="_blank">
+          <div class="file-icon-box">📈</div>
+          <div class="file-info">
+            <div class="file-name">Renewal Dashboard — Zoho CRM</div>
+            <div class="file-desc-ar">لوحة متابعة أداء فريق التجديد اليومي في Zoho</div>
+            <div class="file-desc-en">Daily renewal team performance dashboard in Zoho CRM</div>
+            <span class="file-tag ft">داشبورد</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- فورم التقييم -->
+    <div class="branch-zone b-form">
+      <div class="branch-head">
+        <span class="icon">📝</span>
+        <span class="label">فورم التقييم</span>
+        <span class="count">2 فورم</span>
+      </div>
+      <div class="branch-files">
+
+        <a class="file-card highlight" href="https://forms.gle/kZJm1J5ScHN2y57s5" target="_blank">
+          <div class="file-icon-box">📝</div>
+          <div class="file-info">
+            <div class="file-name">QA Review — Renewal Team (Temp 1)</div>
+            <div class="file-desc-ar">فورم تقييم جودة مكالمات التجديد — النسخة الأولى</div>
+            <div class="file-desc-en">Renewal call QA review form — version 1</div>
+            <span class="file-tag ft">Google Form</span>
+          </div>
+        </a>
+
+        <a class="file-card" href="https://forms.gle/8GczTnzfJdm8EvGY6" target="_blank">
+          <div class="file-icon-box">📝</div>
+          <div class="file-info">
+            <div class="file-name">QA Review — Renewal Team (Temp 2)</div>
+            <div class="file-desc-ar">فورم تقييم جودة مكالمات التجديد — النسخة الثانية</div>
+            <div class="file-desc-en">Renewal call QA review form — version 2</div>
+            <span class="file-tag ft">Google Form</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- أكاديمية -->
+    <div class="branch-zone b-acad">
+      <div class="branch-head">
+        <span class="icon">🎓</span>
+        <span class="label">أكاديمية</span>
+        <span class="count">2 ملفات</span>
+      </div>
+      <div class="branch-files">
+
+        <a class="file-card highlight" href="https://fyousef-2023.github.io/Renewal-Stages-Guide/" target="_blank">
+          <div class="file-icon-box">🌐</div>
+          <div class="file-info">
+            <div class="file-name">Renewal Stages Guide</div>
+            <div class="file-desc-ar">دليل مراحل التجديد — إجراءات كل مرحلة والتصعيد والاعتراضات</div>
+            <div class="file-desc-en">Renewal stages guide — actions, escalation & objections per stage</div>
+            <span class="file-tag ft">صفحة ويب</span>
+          </div>
+        </a>
+
+        <a class="file-card" href="https://fyousef-2023.github.io/Renewal-Call-Checklist/" target="_blank">
+          <div class="file-icon-box">📋</div>
+          <div class="file-info">
+            <div class="file-name">Renewal Call Checklist</div>
+            <div class="file-desc-ar">قائمة مراجعة مكالمات التجديد التفاعلية — تابات لكل مرحلة</div>
+            <div class="file-desc-en">Interactive renewal call checklist — tabs per stage with tags</div>
+            <span class="file-tag ft">صفحة ويب</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- لوحة الأداء -->
+    <div class="branch-zone b-dash">
+      <div class="branch-head">
+        <span class="icon">🎯</span>
+        <span class="label">الأداء</span>
+        <span class="count">1 ملف</span>
+      </div>
+      <div class="branch-files">
+
+        <a class="file-card highlight" href="https://crm.zoho.com/crm/org709483323/tab/Dashboards/4412475001391775290" target="_blank">
+          <div class="file-icon-box">📊</div>
+          <div class="file-info">
+            <div class="file-name">Renewal Dashboard — Zoho CRM</div>
+            <div class="file-desc-ar">لوحة تحليل أداء الفريق — المراحل والأرقام والموظفين</div>
+            <div class="file-desc-en">Team performance analytics — stages, numbers & agents</div>
+            <span class="file-tag ft">داشبورد · Zoho</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    إعداد: قسم الجودة — فريق التجديد &nbsp;|&nbsp; رِواء &nbsp;|&nbsp; النسخة 1.0<br>
+    QA – Renewal &nbsp;|&nbsp; Rewaa &nbsp;|&nbsp; يونيو 2026
+  </div>
+
+</div>
+</body>
+</html>
